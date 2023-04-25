@@ -1,6 +1,11 @@
 numbers = {'one':1, 'two':2, 'three':3}
 print(numbers['one'])
 
+# print key of min value
+min_value = min(numbers.values())
+minimum =min(numbers, key=numbers.get)
+print(f"Minimum key: {minimum}, values :{min_value},")
+
 # adding
 numbers['eleven'] = 11
 print(numbers)
@@ -8,6 +13,8 @@ print(numbers)
 # changing
 numbers['one'] = 'Pluto'
 print(numbers)
+
+
 
 # "for"
 planets = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune']
