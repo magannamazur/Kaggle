@@ -6,6 +6,7 @@ pd.set_option("display.max_rows", 5)
 
 # for each of these groups, we grabbed the points() column and counted how many times it appeared
 print(reviews.groupby('points').points.count())
+print(reviews.groupby('points').size())
 
 # to get the cheapest wine in each point value category, we can do the following
 print(reviews.groupby('points').price.min())
@@ -35,3 +36,18 @@ print(countries_reviewed.sort_values(by='len'))
 
 # sort_values() defaults to an ascending sort, where the lowest values go first
 print(countries_reviewed.sort_values(by='len', ascending=False))
+
+# To sort by index values, use the companion method sort_index()
+print(countries_reviewed.sort_index())
+
+# you can sort by more than one column at a time
+print(countries_reviewed.sort_values(by=['country', 'len']))
+
+# the column names
+print(reviews.columns.values)
+
+# a Series whose index is a MultiIndexof {country, variety} pairs.
+# For example, a pinot noir produced in the US should map to {"US", "Pinot Noir"}.
+# Sort the values in the Series in descending order based on wine count.
+country_variety_counts = reviews.groupby(['country', 'variety']).size().sort_values(ascending = False)
+print(country_variety_counts)

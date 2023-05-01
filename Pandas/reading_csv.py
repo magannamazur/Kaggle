@@ -15,3 +15,6 @@ print(wine_reviews_index.head())
 
 # To save this DataFrame to disk as a csv file with the name wine_index.csv
 wine_reviews_index.to_csv('wine_index.csv')
+
+# the column names
+print(wine_reviews.columns.values)
