@@ -5,8 +5,13 @@ pd.set_option("display.max_rows", 5)
 # groupby, the order of the rows is dependent on the values in the index, not in the data.
 
 # for each of these groups, we grabbed the points() column and counted how many times it appeared
+# dataframe
 print(reviews.groupby('points').points.count())
 print(reviews.groupby('points').size())
+
+# value_counts() display the result in descending order so that the first element is the most frequently-occurring element.
+# Excludes NA values by default. for series
+print(reviews.groupby('points').points.value_counts())
 
 # to get the cheapest wine in each point value category, we can do the following
 print(reviews.groupby('points').price.min())
