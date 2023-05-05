@@ -105,3 +105,10 @@ OH_X_valid.columns = OH_X_valid.columns.astype(str)
 
 print("MAE from Approach 3 (One-Hot Encoding):")
 print(score_dataset(OH_X_train, OH_X_valid, y_train, y_valid))
+
+# Get number of unique entries in each column with categorical data
+object_nunique = list(map(lambda col: X_train[col].nunique(), object_cols))
+d = dict(zip(object_cols, object_nunique))
+
+# Print number of unique entries by column, in ascending order
+print(sorted(d.items(), key=lambda x: x[1]))
