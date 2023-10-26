@@ -15,7 +15,10 @@ train_X, val_X, train_y, val_y = train_test_split(X, y ,random_state = 0)
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error
 
-forest_model = RandomForestRegressor(random_state=1)
+# We set the number of trees in the random forest model with the n_estimators parameter,
+# and setting random_state ensures reproducibility.
+
+forest_model = RandomForestRegressor(n_estimators=50, random_state=1)
 forest_model.fit(train_X, train_y)
 melb_preds = forest_model.predict(val_X)
 print(mean_absolute_error(val_y, melb_preds))
